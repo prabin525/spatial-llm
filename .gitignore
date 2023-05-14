@@ -1,0 +1,5 @@
+env/
+.DS_STORE
+.vscode
+playground.ipynb
+dataset/

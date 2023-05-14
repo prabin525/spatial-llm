@@ -1,0 +1,10 @@
+The latitude and longitude of {city_a} are {lat_a} and {lng_a}.
+
+
+The latitude and longitude of {city_b} are {lat_b} and {lng_b}.
+
+
+The latitude and longitude of {city_c} are {lat_c} and {lng_c}.
+
+
+The latitude and longitude of {city} are
