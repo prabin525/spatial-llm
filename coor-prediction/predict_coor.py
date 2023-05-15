@@ -37,12 +37,12 @@ def gen_coor_lm(
                         city_a=sampled_city.iloc[0].AccentCity,
                         lat_a=str(sampled_city.iloc[0].Latitude),
                         lng_a=str(sampled_city.iloc[0].Longitude),
-                        city_a=sampled_city.iloc[1].AccentCity,
-                        lat_a=str(sampled_city.iloc[1].Latitude),
-                        lng_a=str(sampled_city.iloc[1].Longitude),
-                        city_a=sampled_city.iloc[2].AccentCity,
-                        lat_a=str(sampled_city.iloc[2].Latitude),
-                        lng_a=str(sampled_city.iloc[2].Longitude),
+                        city_b=sampled_city.iloc[1].AccentCity,
+                        lat_b=str(sampled_city.iloc[1].Latitude),
+                        lng_b=str(sampled_city.iloc[1].Longitude),
+                        city_c=sampled_city.iloc[2].AccentCity,
+                        lat_c=str(sampled_city.iloc[2].Latitude),
+                        lng_c=str(sampled_city.iloc[2].Longitude),
                         city=each.AccentCity,
                     )
 
@@ -51,12 +51,12 @@ def gen_coor_lm(
                         city_a=sampled_city.iloc[0].AccentCity,
                         lat_a=str(sampled_city.iloc[0].Latitude),
                         lng_a=str(sampled_city.iloc[0].Longitude),
-                        city_a=sampled_city.iloc[1].AccentCity,
-                        lat_a=str(sampled_city.iloc[1].Latitude),
-                        lng_a=str(sampled_city.iloc[1].Longitude),
-                        city_a=sampled_city.iloc[2].AccentCity,
-                        lat_a=str(sampled_city.iloc[2].Latitude),
-                        lng_a=str(sampled_city.iloc[2].Longitude),
+                        city_b=sampled_city.iloc[1].AccentCity,
+                        lat_b=str(sampled_city.iloc[1].Latitude),
+                        lng_b=str(sampled_city.iloc[1].Longitude),
+                        city_c=sampled_city.iloc[2].AccentCity,
+                        lat_c=str(sampled_city.iloc[2].Latitude),
+                        lng_c=str(sampled_city.iloc[2].Longitude),
                         city=each.AccentCity,
                     )
 
@@ -81,7 +81,9 @@ def gen_coor_lm(
             'output': outputs[0].replace(prompt, ''),
             'full_output': outputs[0],
             'model': model_name.split('/')[1].split('-')[0],
-            'model_size': model_name.split('/')[1].split('-')[1]
+            'model_size': model_name.split('/')[1].split('-')[1],
+            'p_type': p_type,
+            'p_length': p_length
         })
         results.append(res)
     return results
@@ -134,7 +136,8 @@ def gen_coor_alpaca(
             'output': outputs[0].replace(prompt, ''),
             'full_output': outputs[0],
             'model': model_name.split('/')[1].split('-')[0],
-            'model_size': model_name.split('/')[1].split('-')[1]
+            'model_size': model_name.split('/')[1].split('-')[1],
+            'p_type': p_type,
         })
         results.append(res)
     return results

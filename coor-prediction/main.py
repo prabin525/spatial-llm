@@ -63,7 +63,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     print(args)
 
-    cities = pd.read_pickle('wordcities100k.pkl')
+    cities = pd.read_pickle('worldcities100k.pkl')
 
     if args.local:
         if not torch.backends.mps.is_available():
@@ -105,10 +105,14 @@ if __name__ == '__main__':
             args.p_type,
             args.p_length
         )
+        file_path = (
+                f'outputs/gen_coor_{model_name.split("/")[1]}-{args.p_length}-'
+                f'{args.p_type}.json'
+        )
         json.dump(
             result,
             open(
-                f'gen_coor_{model_name.split("/")[1]}.json',
+                file_path,
                 'w+'
             )
         )
@@ -138,10 +142,14 @@ if __name__ == '__main__':
             args.p_type,
             args.p_length
         )
+        file_path = (
+                f'outputs/gen_coor_{model_name.split("/")[1]}-{args.p_length}-'
+                f'{args.p_type}.json'
+        )
         json.dump(
             result,
             open(
-                f'gen_coor_{model_name.split("/")[1]}.json',
+                file_path,
                 'w+'
             )
         )
@@ -157,7 +165,7 @@ if __name__ == '__main__':
                 '/scratch/pbhanda2/projects/llama/alpaca_weights_7B'
             )
         model.to(device)
-        generated_dis = gen_coor_alpaca(
+        result = gen_coor_alpaca(
             model,
             tokenizer,
             device,
@@ -165,10 +173,14 @@ if __name__ == '__main__':
             cities,
             args.p_type
         )
+        file_path = (
+                f'outputs/gen_coor_{model_name.split("/")[1]}-{args.p_length}-'
+                f'{args.p_type}.json'
+        )
         json.dump(
-            generated_dis,
+            result,
             open(
-                f'gen_coor_{model_name.split("/")[1]}.json',
+                file_path,
                 'w+'
             )
         )

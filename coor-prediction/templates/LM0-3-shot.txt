@@ -1,10 +1,7 @@
 The geo-coordinates of {city_a} are {lat_a} and {lng_a}.
 
-
 The geo-coordinates of {city_b} are {lat_b} and {lng_b}.
 
-
 The geo-coordinates of {city_c} are {lat_c} and {lng_c}.
-
 
 The geo-coordinates of {city} are
