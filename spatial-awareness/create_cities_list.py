@@ -1,4 +1,3 @@
-import json
 import geopy.distance
 from geocoding.geocoding import GeoCoding
 import pandas as pd
@@ -42,4 +41,3 @@ for each in places:
 
 df = pd.DataFrame(places)
 df.to_pickle('cities.pkl')
-json.dump(places, open('cities.json', 'w+'))
