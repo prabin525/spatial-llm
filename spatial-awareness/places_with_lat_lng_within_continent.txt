@@ -1,0 +1,93 @@
+Albany, New York	42	40	73	45	12:00 noon
+Albuquerque, New Mexico	35	05	106	39	10:00 a.m.
+Amarillo, Texas	35	11	101	50	11:00 a.m.
+Atlanta, Georgia	33	45	84	23	12:00 noon
+Austin, Texas	30	16	97	44	11:00 a.m.
+Baltimore, Maryland	39	18	76	38	12:00 noon
+Bangor, Maine	44	48	68	47	12:00 noon
+Bismarck, North Dakota	46	48	100	47	11:00 a.m.
+Boise, Idaho	43	36	116	13	10:00 a.m.
+Boston, Massachusetts	42	21	71	5	12:00 noon
+Buffalo, New York	42	55	78	50	12:00 noon
+Carlsbad, New Mexico	32	26	104	15	10:00 a.m.
+Charlotte, North Carolina	35	14	80	50	12:00 noon
+Cheyenne, Wyoming	41	9	104	52	10:00 a.m.
+Chicago, Illinois	41	50	87	37	11:00 a.m.
+Cincinnati, Ohio	39	8	84	30	12:00 noon
+Cleveland, Ohio	41	28	81	37	12:00 noon
+Columbus, Ohio	40	0	83	1	12:00 noon
+Dallas, Texas	32	46	96	46	11:00 a.m.
+Denver, Colorado	39	45	105	0	10:00 a.m.
+Des Moines, Iowa	41	35	93	37	11:00 a.m.
+Detroit, Michigan	42	20	83	3	12:00 noon
+Dubuque, Iowa	42	31	90	40	11:00 a.m.
+Duluth, Minnesota	46	49	92	5	11:00 a.m.
+Eastport, Maine	44	54	67	0	12:00 noon
+El Centro, California	32	38	115	33	9:00 a.m.
+El Paso, Texas	31	46	106	29	10:00 a.m.
+Eugene, Oregon	44	3	123	5	9:00 a.m.
+Fargo, North Dakota	46	52	96	48	11:00 a.m.
+Flagstaff, Arizona	35	13	111	41	10:00 a.m.
+Fort Worth, Texas	32	43	97	19	11:00 a.m.
+Fresno, California	36	44	119	48	9:00 a.m.
+Grand Junction, Colorado	39	5	108	33	10:00 a.m.
+Grand Rapids, Michigan	42	58	85	40	12:00 noon
+Havre, Montana	48	33	109	43	10:00 a.m.
+Helena, Montana	46	35	112	2	10:00 a.m.
+Hot Springs, Arkansas	34	31	93	3	11:00 a.m.
+Houston, Texas	29	45	95	21	11:00 a.m.
+Idaho Falls, Idaho	43	30	112	1	10:00 a.m.
+Indianapolis, Indiana	39	46	86	10	12:00 noon
+Jacksonville, Florida	30	22	81	40	12:00 noon
+Kansas City, Missouri	39	6	94	35	11:00 a.m.
+Key West, Florida	24	33	81	48	12:00 noon
+Klamath Falls, Oregon	42	10	121	44	9:00 a.m.
+Knoxville, Tennessee	35	57	83	56	12:00 noon
+Las Vegas, Nevada	36	10	115	12	9:00 a.m.
+Lewiston, Idaho	46	24	117	2	9:00 a.m.
+Long Beach, California	33	46	118	11	9:00 a.m.
+Los Angeles, California	34	3	118	15	9:00 a.m.
+Louisville, Kentucky	38	15	85	46	12:00 noon
+Memphis, Tennessee	35	9	90	3	11:00 a.m.
+Miami, Florida	25	46	80	12	12:00 noon
+Milwaukee, Wisconsin	43	2	87	55	11:00 a.m.
+Minneapolis, Minnesota	44	59	93	14	11:00 a.m.
+Montgomery, Alabama	32	21	86	18	11:00 a.m.
+Montpelier, Virginia	44	15	72	32	12:00 noon
+Nashville, Tennessee	36	10	86	47	11:00 a.m.
+Newark, New Jersey	40	44	74	10	12:00 noon
+New Haven, Connecticut	41	19	72	55	12:00 noon
+New Orleans, Louisiana	29	57	90	4	11:00 a.m.
+New York, New York	40	47	73	58	12:00 noon
+Oakland, California	37	48	122	16	9:00 a.m.
+Oklahoma City, Oklahoma	35	26	97	28	11:00 a.m.
+Omaha, Nebraska	41	15	95	56	11:00 a.m.
+Philadelphia, Pennsylvania	39	57	75	10	12:00 noon
+Phoenix, Arizona	33	29	112	4	10:00 a.m.
+Pierre, South Dakota	44	22	100	21	11:00 a.m.
+Pittsburgh, Pennsylvania	40	27	79	57	12:00 noon
+Providence, Rhode Island	41	50	71	24	12:00 noon
+Raleigh, North Carolina	35	46	78	39	12:00 noon
+Reno, Nevada	39	30	119	49	9:00 a.m.
+Richfield, Utah	38	46	112	5	10:00 a.m.
+Richmond, Virginia	37	33	77	29	12:00 noon
+Roanoke, Virginia	37	17	79	57	12:00 noon
+Sacramento, California	38	35	121	30	9:00 a.m.
+St. Louis, Missouri	38	35	90	12	11:00 a.m.
+Salt Lake City, Utah	40	46	111	54	10:00 a.m.
+San Antonio, Texas	29	23	98	33	11:00 a.m.
+San Diego, California	32	42	117	10	9:00 a.m.
+San Francisco, California	37	47	122	26	9:00 a.m.
+San Jose, California	37	20	121	53	9:00 a.m.
+Santa Fe, New Mexico	35	41	105	57	10:00 a.m.
+Savannah, Georgia	32	5	81	5	12:00 noon
+Seattle, Washington State	47	37	122	20	9:00 a.m.
+Shreveport, Louisiana	32	28	93	42	11:00 a.m.
+Sioux Falls, South Dakota	43	33	96	44	11:00 a.m.
+Syracuse, New York	43	2	76	8	12:00 noon
+Tampa, Florida	27	57	82	27	12:00 noon
+Toledo, Ohio	41	39	83	33	12:00 noon
+Tulsa, Oklahoma	36	09	95	59	11:00 a.m.
+Virginia Beach, Virginia	36	51	75	58	12:00 noon
+Wichita, Kansas	37	43	97	17	11:00 a.m.
+Wilmington, North Carolina	34	14	77	57	12:00 noon
