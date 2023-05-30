@@ -1,0 +1,7 @@
+{city_a} is far from {city_b}.
+
+{city_c} is far from {city_d}.
+
+{city_e} is far from {city_f}.
+
+{city} is near 

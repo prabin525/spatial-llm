@@ -1,0 +1,7 @@
+{city_a} is close to {city_b}.
+
+{city_c} is close to {city_d}.
+
+{city_e} is close to {city_f}.
+
+{city} is near 
