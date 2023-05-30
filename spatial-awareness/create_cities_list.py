@@ -1,6 +1,7 @@
 import json
 import geopy.distance
 from geocoding.geocoding import GeoCoding
+import pandas as pd
 
 in_file_loc = 'places_with_lat_lng_within_continent.txt'
 geocoder = GeoCoding()
@@ -38,4 +39,7 @@ for each in places:
                 far_city = c['name']
     each['near_city'] = near_city
     each['far_city'] = far_city
+
+df = pd.DataFrame(places)
+df.to_pickle('cities.pkl')
 json.dump(places, open('cities.json', 'w+'))
