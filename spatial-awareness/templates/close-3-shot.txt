@@ -4,4 +4,4 @@
 
 {city_e} is close to {city_f}.
 
-{city} is near 
+{city} is close to 
