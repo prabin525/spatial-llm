@@ -169,8 +169,8 @@ def gen_sen(
                 top_k=100,
                 temperature=0.9,
                 max_new_tokens=10,
-                num_return_sequences=50
-                # eos_token_id=tokenizer.encode('\n\n')
+                num_return_sequences=50,
+                eos_token_id=tokenizer.encode('\n\n')
             )
             o = tokenizer.batch_decode(
                 gen,

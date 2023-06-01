@@ -103,7 +103,7 @@ if __name__ == '__main__':
     if state is True:
         state_rec = 'state'
     file_path = (
-            f'outputs/gen_sen-{args.p_length}-{args.p_type}-'
+            f'outputs_with_eos/gen_sen-{args.p_length}-{args.p_type}-'
             f'{state_rec}.json'
     )
     json.dump(
