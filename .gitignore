@@ -3,3 +3,4 @@ env/
 .vscode
 playground.ipynb
 dataset/
+geckodriver.log
