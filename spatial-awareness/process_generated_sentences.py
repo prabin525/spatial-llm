@@ -59,7 +59,6 @@ for f in files_3:
                     each2['lng_b'] = lng
                     each2['dis'] = dis
                     res.append(each2)
-        break
 
     json.dump(
         res,
