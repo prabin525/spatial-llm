@@ -8,7 +8,9 @@ geocoder = GeoCoding()
 nlp = stanza.Pipeline('en')
 
 base_dir = 'outputs/'
+# base_dir = 'outputs_with_eos/'
 out_dir = 'outputs_processed/'
+# out_dir = 'outputs_with_eos_processed/'
 files = os.listdir(base_dir)
 files_3 = [f for f in files if '3-shot' in f]
 
