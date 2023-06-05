@@ -1,0 +1,7 @@
+The distance in kilometers between {city_a} and {city_b} is {dis_a:.2f}.
+
+The distance in kilometers between {city_c} and {city_d} is {dis_b:.2f}.
+
+The distance in kilometers between {city_e} and {city_f} is {dis_c:.2f}.
+
+The distance in kilometers between {city_g} and {city_h} is 
