@@ -116,6 +116,8 @@ def peform_mds(
             'name': list(temp_cods_test.keys())[0],
             'lat': list(temp_cods_test.values())[0][0],
             'lng': list(temp_cods_test.values())[0][1],
+            'pred_lat': P_translated[-1][0],
+            'pred_lng': P_translated[-1][1],
             'err': err
         })
     return vals
