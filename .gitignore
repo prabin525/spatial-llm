@@ -4,3 +4,4 @@ env/
 playground.ipynb
 dataset/
 geckodriver.log
+__pycache__/
