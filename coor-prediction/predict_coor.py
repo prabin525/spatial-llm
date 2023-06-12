@@ -141,3 +141,52 @@ def gen_coor_alpaca(
         })
         results.append(res)
     return results
+
+
+def gen_coor_lm_usa(
+        model,
+        tokenizer,
+        device,
+        model_name,
+        cities,
+):
+
+    results = []
+    template = [
+        open('templates/LM1-zero-shot.txt').read(),
+    ]
+    cities = list(set(cities.a_name.to_list()))
+
+    for each in cities:
+        res = {
+            'name': each
+        }
+        prompt = template[0].format(
+                city=each,
+            )
+
+        tokenized_prompt = tokenizer.encode(
+            prompt,
+            return_tensors='pt'
+        )
+        tokenized_prompt = tokenized_prompt.to(device)
+        gen = model.generate(
+            tokenized_prompt,
+            do_sample=False,
+            num_beams=5,
+            max_new_tokens=60,
+            # eos_token_id=tokenizer.encode('\n\n')
+        )
+        outputs = tokenizer.batch_decode(
+            gen,
+            skip_special_tokens=True,
+            clean_up_tokenization_spaces=False
+        )
+        res.update({
+            'output': outputs[0].replace(prompt, ''),
+            'full_output': outputs[0],
+            'model': model_name.split('/')[1].split('-')[0],
+            'model_size': model_name.split('/')[1].split('-')[1],
+        })
+        results.append(res)
+    return results
