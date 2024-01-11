@@ -141,9 +141,9 @@ if __name__ == '__main__':
     for file in dirs:
         model = file.split("-")[0].split("_")[2]
         a = pd.read_json(open(f'{folder_loc}/{file}'))
-        if model in ['opt', 'llama']:
+        if model in ['opt', 'llama', 'llama2']:
             a = cal_errs_llm(a)
             a.to_json(f'{out_folder}/{file}')
-        elif model in ['alpaca']:
+        elif model in ['alpaca', 'llama2chat']:
             a = cal_errs_instruction(a)
             a.to_json(f'{out_folder}/{file}')
