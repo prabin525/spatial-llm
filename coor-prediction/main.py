@@ -5,12 +5,14 @@ import pandas as pd
 from transformers import (
     AutoTokenizer,
     OPTForCausalLM,
+    AutoModelForCausalLM,
     LlamaForCausalLM,
     LlamaTokenizer
 )
 from predict_coor import (
     gen_coor_lm,
-    gen_coor_alpaca
+    gen_coor_alpaca,
+    gen_coor_llama2_chat
 )
 
 if __name__ == '__main__':
@@ -23,7 +25,9 @@ if __name__ == '__main__':
         choices=[
             'opt',
             'llama',
-            'alpaca'
+            'alpaca',
+            'llama2',
+            'llama2-chat'
         ],
         required=True,
     )
@@ -33,6 +37,7 @@ if __name__ == '__main__':
         choices=[
             '0',
             '1',
+            '2'
         ],
         default='0',
     )
@@ -176,6 +181,107 @@ if __name__ == '__main__':
         file_path = (
                 f'outputs/gen_coor_{model_name.split("/")[1]}-{args.p_length}-'
                 f'{args.p_type}.json'
+        )
+        json.dump(
+            result,
+            open(
+                file_path,
+                'w+'
+            )
+        )
+    elif args.model_name == 'llama2':
+        if args.local:
+            raise Exception('llama2 not available locally')
+        else:
+            if args.model_size == '0':
+                model_name = "meta-llama/Llama-2-7b-hf"
+                model_name2 = "meta-llama/llama2-7b-hf"
+            elif args.model_size == '1':
+                model_name = "meta-llama/Llama-2-13b-hf"
+                model_name2 = "meta-llama/llama2-13b-hf"
+            elif args.model_size == '2':
+                model_name = "meta-llama/Llama-2-70b-hf"
+                model_name2 = "meta-llama/llama2-70b-hf"
+
+            access_token = open('access_token').read()
+            if args.model_size == '2':
+                model = AutoModelForCausalLM.from_pretrained(
+                    model_name,
+                    use_auth_token=access_token,
+                    load_in_8bit=True,
+                )
+            else:
+                model = LlamaForCausalLM.from_pretrained(
+                    model_name,
+                    use_auth_token=access_token,
+                )
+
+            tokenizer = LlamaTokenizer.from_pretrained(
+                model_name
+            )
+        model.to(device)
+        result = gen_coor_lm(
+            model,
+            tokenizer,
+            device,
+            model_name2,
+            cities,
+            args.p_type,
+            args.p_length
+        )
+        file_path = (
+                f'outputs/gen_coor_{model_name2.split("/")[1]}-{args.p_length}'
+                f'-{args.p_type}.json'
+        )
+        json.dump(
+            result,
+            open(
+                file_path,
+                'w+'
+            )
+        )
+    elif args.model_name == 'llama2-chat':
+        if args.local:
+            raise Exception('llama2 not available locally')
+        else:
+            if args.model_size == '0':
+                model_name = "meta-llama/Llama-2-7b-chat-hf"
+                model_name2 = "meta-llama/llama2chat-7b-chat-hf"
+            elif args.model_size == '1':
+                model_name = "meta-llama/Llama-2-13b-chat-hf"
+                model_name2 = "meta-llama/llama2chat-13b-chat-hf"
+            elif args.model_size == '2':
+                model_name = "meta-llama/Llama-2-70b-chat-hf"
+                model_name2 = "meta-llama/llama2chat-70b-chat-hf"
+
+            access_token = open('access_token').read()
+            if args.model_size == '2':
+                model = AutoModelForCausalLM.from_pretrained(
+                    model_name,
+                    use_auth_token=access_token,
+                    load_in_8bit=True,
+                )
+            else:
+                model = LlamaForCausalLM.from_pretrained(
+                    model_name,
+                    use_auth_token=access_token,
+                )
+
+            tokenizer = LlamaTokenizer.from_pretrained(
+                model_name
+            )
+        model.to(device)
+        result = gen_coor_llama2_chat(
+            model,
+            tokenizer,
+            device,
+            model_name2,
+            cities,
+            args.p_type,
+        )
+        file_path = (
+                f'outputs/gen_coor_{model_name2.split("/")[1]}-{args.p_length}'
+                f'-{args.p_type}.json'
         )
         json.dump(
             result,

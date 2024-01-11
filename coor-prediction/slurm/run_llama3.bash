@@ -1,6 +1,6 @@
 MODEL='llama2'
 
-model_size='1'
+model_size='2'
 for p_type in 0 1
 do
     for p_length in 'zero-shot' '3-shot'
