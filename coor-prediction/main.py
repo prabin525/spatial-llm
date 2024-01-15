@@ -219,7 +219,8 @@ if __name__ == '__main__':
             tokenizer = LlamaTokenizer.from_pretrained(
                 model_name
             )
-        model.to(device)
+        if args.model_size != '2':
+            model.to(device)
         result = gen_coor_lm(
             model,
             tokenizer,
