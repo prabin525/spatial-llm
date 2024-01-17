@@ -1,5 +1,6 @@
 import torch
 import json
+import copy
 from typing import (
     List,
     Literal,
@@ -277,13 +278,13 @@ def gen_coor_llama2_chat(
     for i, each in cities.iterrows():
         res = each.to_dict()
         if p_type == '0':
-            prompt = template[0].copy()
+            prompt = copy.deepcopy(template[0])
             prompt[0][1]['content'] = prompt[0][1]['content'].format(
                                         city=each.AccentCity
                                     )
 
         elif p_type == '1':
-            prompt = template[1].copy()
+            prompt = copy.deepcopy(template[1])
             prompt[0][1]['content'] = prompt[0][1]['content'].format(
                                         city=each.AccentCity
                                     )
