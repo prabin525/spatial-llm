@@ -4,7 +4,8 @@ import torch
 import pandas as pd
 from transformers import (
     LlamaForCausalLM,
-    LlamaTokenizer
+    LlamaTokenizer,
+    AutoModelForCausalLM,
 )
 from gen_sen import (
     gen_sen,
@@ -57,6 +58,8 @@ if __name__ == '__main__':
     else:
         state = False
 
+    use_lamma2 = True
+
     cities = pd.read_pickle('cities.pkl')
 
     if args.local:
@@ -81,15 +84,27 @@ if __name__ == '__main__':
     if args.local:
         raise Exception('llama not available locally')
     else:
-        model_name = "facebook/llama-13b"
-        model_loc = '/scratch/pbhanda2/projects/llama/hf_llama/13B'
-        model = LlamaForCausalLM.from_pretrained(
-            model_loc
-        )
-        tokenizer = LlamaTokenizer.from_pretrained(
-            model_loc
-        )
-    model.to(device)
+        if use_lamma2:
+            model_name = "meta-llama/Llama-2-70b-hf"
+            access_token = open('access_token').read()
+            model = AutoModelForCausalLM.from_pretrained(
+                model_name,
+                use_auth_token=access_token,
+                load_in_8bit=True,
+            )
+            tokenizer = LlamaTokenizer.from_pretrained(
+                model_name
+            )
+        else:
+            model_name = "facebook/llama-13b"
+            model_loc = '/scratch/pbhanda2/projects/llama/hf_llama/13B'
+            model = LlamaForCausalLM.from_pretrained(
+                model_loc
+            )
+            tokenizer = LlamaTokenizer.from_pretrained(
+                model_loc
+            )
+            model.to(device)
     result = gen_sen(
         model,
         tokenizer,
@@ -102,10 +117,16 @@ if __name__ == '__main__':
     state_rec = 'no-state'
     if state is True:
         state_rec = 'state'
-    file_path = (
-            f'outputs_with_eos/gen_sen-{args.p_length}-{args.p_type}-'
-            f'{state_rec}.json'
-    )
+    if use_lamma2:
+        file_path = (
+                f'outputs_llama2/gen_sen-{args.p_length}-{args.p_type}-'
+                f'{state_rec}.json'
+        )
+    else:
+        file_path = (
+                f'outputs_with_eos/gen_sen-{args.p_length}-{args.p_type}-'
+                f'{state_rec}.json'
+        )
     json.dump(
         result,
         open(
