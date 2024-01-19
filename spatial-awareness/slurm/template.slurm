@@ -13,7 +13,7 @@
 
 #SBATCH --nodes=1 --ntasks-per-node=1
 
-cd /scratch/pbhanda2/projects/children_stories_gen
+cd /scratch/pbhanda2/projects
 source myenv/bin/activate
 cd /scratch/pbhanda2/projects/spatial-llm/spatial-awareness
 
