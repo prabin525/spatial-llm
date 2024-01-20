@@ -4,7 +4,8 @@ import torch
 import pandas as pd
 from transformers import (
     LlamaForCausalLM,
-    LlamaTokenizer
+    LlamaTokenizer,
+    AutoModelForCausalLM,
 )
 
 
@@ -95,6 +96,12 @@ if __name__ == '__main__':
         ],
         required=True,
     )
+    parser.add_argument(
+        '--use_llama2',
+        dest='use_llama2',
+        type=bool,
+        default=True,
+    )
     args = parser.parse_args()
     print(args)
 
@@ -122,15 +129,27 @@ if __name__ == '__main__':
     if args.local:
         raise Exception('llama not available locally')
     else:
-        model_name = "facebook/llama-13b"
-        model_loc = '/scratch/pbhanda2/projects/llama/hf_llama/13B'
-        model = LlamaForCausalLM.from_pretrained(
-            model_loc
-        )
-        tokenizer = LlamaTokenizer.from_pretrained(
-            model_loc
-        )
-    model.to(device)
+        if args.use_llama2:
+            model_name = "meta-llama/Llama-2-70b-hf"
+            access_token = open('access_token').read()
+            model = AutoModelForCausalLM.from_pretrained(
+                model_name,
+                use_auth_token=access_token,
+                load_in_8bit=True,
+            )
+            tokenizer = LlamaTokenizer.from_pretrained(
+                model_name
+            )
+        else:
+            model_name = "facebook/llama-13b"
+            model_loc = '/scratch/pbhanda2/projects/llama/hf_llama/13B'
+            model = LlamaForCausalLM.from_pretrained(
+                model_loc
+            )
+            tokenizer = LlamaTokenizer.from_pretrained(
+                model_loc
+            )
+            model.to(device)
     result = gen_dis(
         model,
         tokenizer,
@@ -138,7 +157,10 @@ if __name__ == '__main__':
         cities,
         args.p_length
     )
-    file_path = f'outputs/gen_dis-{args.p_length}.json'
+    if args.use_llama2:
+        file_path = f'outputs/gen_dis_llama2-{args.p_length}.json'
+    else:
+        file_path = f'outputs/gen_dis-{args.p_length}.json'
     json.dump(
         result,
         open(
