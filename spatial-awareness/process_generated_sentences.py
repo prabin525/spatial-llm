@@ -7,9 +7,10 @@ from geocoding.geocoding import GeoCoding
 geocoder = GeoCoding()
 nlp = stanza.Pipeline('en')
 
-base_dir = 'outputs/'
+# base_dir = 'outputs/'
 # base_dir = 'outputs_with_eos/'
-out_dir = 'outputs_processed/'
+base_dir = 'outputs_llama2/'
+out_dir = 'outputs_processed_llama2/'
 # out_dir = 'outputs_with_eos_processed/'
 files = os.listdir(base_dir)
 files_3 = [f for f in files if '3-shot' in f]
