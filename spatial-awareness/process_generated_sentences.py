@@ -9,9 +9,12 @@ nlp = stanza.Pipeline('en')
 
 # base_dir = 'outputs/'
 # base_dir = 'outputs_with_eos/'
-base_dir = 'outputs_llama2/'
-out_dir = 'outputs_processed_llama2/'
+# base_dir = 'outputs_llama2/'
+# out_dir = 'outputs_processed_llama2/'
 # out_dir = 'outputs_with_eos_processed/'
+
+base_dir = 'outputs_opt/'
+out_dir = 'outputs_processed_opt/'
 files = os.listdir(base_dir)
 files_3 = [f for f in files if '3-shot' in f]
 
