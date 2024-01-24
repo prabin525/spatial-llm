@@ -6,6 +6,8 @@ from transformers import (
     LlamaForCausalLM,
     LlamaTokenizer,
     AutoModelForCausalLM,
+    OPTForCausalLM,
+    AutoTokenizer
 )
 
 
@@ -100,6 +102,12 @@ if __name__ == '__main__':
         '--use_llama2',
         dest='use_llama2',
         type=bool,
+        default=False,
+    )
+    parser.add_argument(
+        '--use_opt',
+        dest='use_opt',
+        type=bool,
         default=True,
     )
     args = parser.parse_args()
@@ -129,7 +137,7 @@ if __name__ == '__main__':
     if args.local:
         raise Exception('llama not available locally')
     else:
-        if args.use_llama2:
+        if args.use_llama2 is True:
             model_name = "meta-llama/Llama-2-70b-hf"
             access_token = open('access_token').read()
             model = AutoModelForCausalLM.from_pretrained(
@@ -140,6 +148,11 @@ if __name__ == '__main__':
             tokenizer = LlamaTokenizer.from_pretrained(
                 model_name
             )
+        elif args.use_opt is True:
+            model_name = "facebook/opt-13b"
+            model = OPTForCausalLM.from_pretrained(model_name)
+            tokenizer = AutoTokenizer.from_pretrained(model_name)
+            model.to(device)
         else:
             model_name = "facebook/llama-13b"
             model_loc = '/scratch/pbhanda2/projects/llama/hf_llama/13B'
@@ -157,8 +170,10 @@ if __name__ == '__main__':
         cities,
         args.p_length
     )
-    if args.use_llama2:
+    if args.use_llama2 is True:
         file_path = f'outputs/gen_dis_llama2-{args.p_length}.json'
+    elif args.use_opt is True:
+        file_path = f'outputs/gen_dis_opt-{args.p_length}.json'
     else:
         file_path = f'outputs/gen_dis-{args.p_length}.json'
     json.dump(
