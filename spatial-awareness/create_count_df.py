@@ -4,7 +4,8 @@ import pandas as pd
 
 
 # base_dir = './outputs_processed/'
-base_dir = './outputs_processed_llama2/'
+# base_dir = './outputs_processed_llama2/'
+base_dir = './outputs_processed_opt/'
 
 files = os.listdir(base_dir)
 
@@ -96,4 +97,4 @@ for i, each in df.iterrows():
             ns=True
         )
 
-cc100.to_pickle('count_df_llama2.pkl')
+cc100.to_pickle('count_df_opt.pkl')
